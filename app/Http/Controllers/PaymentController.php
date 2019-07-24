@@ -48,7 +48,7 @@ class PaymentController extends Controller
 
         $transaction->setAmount($amount)->setItemList($item_list)->setDescription('Your transaction description');
 
-        $redirect_urls->setReturnUrl(URL::route('home'))->setCancelUrl(URL::route('home'));
+        $redirect_urls->setReturnUrl(URL::route('profile'))->setCancelUrl(URL::route('profile'));
 
         $payment->setIntent('Sale')->setPayer($payer)->setRedirectUrls($redirect_urls)->setTransactions(array($transaction));
 

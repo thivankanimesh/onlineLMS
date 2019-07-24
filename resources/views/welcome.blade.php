@@ -26,7 +26,7 @@
                             <ul class="navbar-nav ml-auto">
 
                             @auth
-                                <a href="{{ url('/home') }}">Home</a>
+                                <a href="{{ url('/profile') }}">Profile</a>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
