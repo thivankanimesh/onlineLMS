@@ -14,7 +14,7 @@
 
     </head>
     <body>
-        <div>
+        <div class="container">
             @if (Route::has('login'))
                 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                     <div class="container">

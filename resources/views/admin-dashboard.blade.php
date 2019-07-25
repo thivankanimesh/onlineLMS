@@ -65,37 +65,38 @@
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
-                                        <form action="/ebook/add">
+                                        <form action="/ebook/add" method="POST" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="modal-body">
 
                                                     <div class="form-group row">
                                                     <label for="ebookTitle" class="col-sm-2 col-form-label">Title</label>
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="ebookTitle" placeholder="Enter title">
+                                                            <input name="title" type="text" class="form-control" id="ebookTitle" placeholder="Enter title" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                     <label for="ebookDescription" class="col-sm-2 col-form-label">Description</label>
                                                         <div class="col-sm-10">
-                                                            <textarea class="form-control" id="ebookDescription" rows="3" placeholder="Enter description"></textarea>
+                                                            <textarea name="description" class="form-control" id="ebookDescription" rows="3" placeholder="Enter description" required></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                     <label for="ebookPrice" class="col-sm-2 col-form-label">Price</label>
                                                         <div class="col-sm-10">
-                                                            <input type="number" class="form-control" id="ebookPrice" placeholder="Enter price">
+                                                            <input name="price" type="number" class="form-control" id="ebookPrice" placeholder="Enter price" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                     <label for="ebookCoverpic" class="col-sm-2 col-form-label">Choose Cover</label>
                                                         <div class="col-sm-10">
-                                                            <input type="file" class="form-control" id="ebookCoverpic" accept="image/*">
+                                                            <input name="coverpic" type="file" class="form-control" id="ebookCoverpic" accept="image/*" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                     <label for="ebookPdf" class="col-sm-2 col-form-label">Choose Pdf</label>
                                                         <div class="col-sm-10">
-                                                            <input type="file" class="form-control" id="ebookPdf" accept=".pdf">
+                                                            <input name="pdf" type="file" class="form-control" id="ebookPdf" accept=".pdf" required>
                                                         </div>
                                                     </div>
                                             </div>

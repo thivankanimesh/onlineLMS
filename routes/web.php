@@ -23,4 +23,6 @@ Route::get('/admin/login','AdminController@login');
 
 Route::get('/admin/logout','AdminController@logout');
 
+Route::post('/ebook/add','EbookController@add');
+
 Route::get('/pay','PaymentController@payWithpaypal');
