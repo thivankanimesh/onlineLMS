@@ -17,4 +17,10 @@ Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
+Route::get('/admin','AdminController@index');
+
+Route::get('/admin/login','AdminController@login');
+
+Route::get('/admin/logout','AdminController@logout');
+
 Route::get('/pay','PaymentController@payWithpaypal');
