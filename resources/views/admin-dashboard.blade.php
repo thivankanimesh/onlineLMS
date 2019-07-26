@@ -102,7 +102,9 @@
                                                             <div class="col-sm-10">
                                                                 <select id="ebookAuthor" class="form-control">
                                                                     <option selected>Choose author...</option>
-                                                                    <option>...</option>
+                                                                    @foreach ($authors as $author)
+                                                                        <option>{{$author->name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
