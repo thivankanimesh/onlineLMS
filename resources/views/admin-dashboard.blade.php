@@ -82,6 +82,27 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
+                                                        <label for="ebookCategory" class="col-sm-2 col-form-label">Category</label>
+                                                        <div class="col-sm-10">
+                                                            <select id="ebookCategory" class="form-control" name="category" required>
+                                                                <option selected>Choose category...</option>
+                                                                <option value="eMagazine">eMagazine</option>
+                                                                <option value="eNewspaper">eNewspaper</option>
+                                                                <option value="eJournal">eJournal</option>
+                                                                <option value="othereBook">Other eBooks</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                            <label for="ebookAuthor" class="col-sm-2 col-form-label">Author</label>
+                                                            <div class="col-sm-10">
+                                                                <select id="ebookAuthor" class="form-control">
+                                                                    <option selected>Choose author...</option>
+                                                                    <option>...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    <div class="form-group row">
                                                     <label for="ebookPrice" class="col-sm-2 col-form-label">Price</label>
                                                         <div class="col-sm-10">
                                                             <input name="price" type="number" class="form-control" id="ebookPrice" placeholder="Enter price" required>
