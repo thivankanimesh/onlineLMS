@@ -100,10 +100,10 @@
                                                     <div class="form-group row">
                                                             <label for="ebookAuthor" class="col-sm-2 col-form-label">Author</label>
                                                             <div class="col-sm-10">
-                                                                <select id="ebookAuthor" class="form-control">
+                                                                <select id="ebookAuthor" class="form-control" name="author">
                                                                     <option selected>Choose author...</option>
                                                                     @foreach ($authors as $author)
-                                                                        <option>{{$author->name}}</option>
+                                                                        <option value="{{$author->name}}">{{$author->name}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>

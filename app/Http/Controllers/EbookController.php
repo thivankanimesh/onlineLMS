@@ -18,6 +18,8 @@ class EbookController extends Controller
 
         $title=$req->get('title');
         $description=$req->get('description');
+        $category=$req->get('category');
+        $author=$req->get('author');
         $price=$req->get('price');
         $coverpic=$req->file('coverpic');
         $pdf=$req->file('pdf');
@@ -30,6 +32,8 @@ class EbookController extends Controller
 
         $ebook->title=$title;
         $ebook->desc=$description;
+        $ebook->category=$category;
+        $ebook->author=$author;
         $ebook->price=$price;
         $ebook->coverpic=$coverpicName;
         $ebook->pdf=$pdfName;
