@@ -41,19 +41,23 @@
                         <div class="col-4">
                           <div class="list-group" id="list-tab" role="tablist">
                             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Dashboard</a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">eBook</a>
+                            <a class="list-group-item list-group-item-action" id="list-ebook-list" data-toggle="list" href="#list-ebook" role="tab" aria-controls="ebook">eBook</a>
+                            <a class="list-group-item list-group-item-action" id="list-author-list" data-toggle="list" href="#list-author" role="tab" aria-controls="author">Author</a>
                             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">User</a>
                             <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
                           </div>
                         </div>
                         <div class="col-8">
                           <div class="tab-content" id="nav-tabContent">
+
+                            <!--This is home related-->
                             <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-                            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+
+                            <!--This is ebooks related-->
+                            <div class="tab-pane fade" id="list-ebook" role="tabpanel" aria-labelledby="list-ebook-list">
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addeBook">Add eBook</button>
                                 <button class="btn btn-primary" type="submit">Update eBook</button>
                                 <button class="btn btn-primary" type="submit">Delete eBook</button>
-
 
                                 <!--Add eBook model-->
                                 <div id="addeBook" class="modal" tabindex="-1" role="dialog">
@@ -131,11 +135,55 @@
                                   </div>
 
                             </div>
-                            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+
+                            <!--This is authors related-->
+                            <div class="tab-pane fade" id="list-author" role="tabpanel" aria-labelledby="list-author-list">
+                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addAuthor">Add Author</button>
+                                <button class="btn btn-primary" type="submit">Update Author</button>
+                                <button class="btn btn-primary" type="submit">Delete Author</button>
+
+                                <!--Add author model-->
+                                <div id="addAuthor" class="modal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title">Adding Author</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <form action="/author/add" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                    <label for="authorName" class="col-sm-2 col-form-label">Name</label>
+                                                        <div class="col-sm-10">
+                                                            <input name="name" type="text" class="form-control" id="authorName" placeholder="Enter Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                    <label for="authorEmail" class="col-sm-2 col-form-label">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <input name="email" type="email" class="form-control" id="authorEmail" placeholder="Enter Email" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Add</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--This is users related-->
                             <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
                           </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
