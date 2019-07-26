@@ -27,4 +27,6 @@ Route::post('/ebook/add','EbookController@add');
 
 Route::post('/author/add','AuthorController@add');
 
+Route::post('/publisher/add','PublisherController@add');
+
 Route::get('/pay','PaymentController@payWithpaypal');

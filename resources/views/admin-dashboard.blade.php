@@ -43,6 +43,7 @@
                             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Dashboard</a>
                             <a class="list-group-item list-group-item-action" id="list-ebook-list" data-toggle="list" href="#list-ebook" role="tab" aria-controls="ebook">eBook</a>
                             <a class="list-group-item list-group-item-action" id="list-author-list" data-toggle="list" href="#list-author" role="tab" aria-controls="author">Author</a>
+                            <a class="list-group-item list-group-item-action" id="list-publisher-list" data-toggle="list" href="#list-publisher" role="tab" aria-controls="publisher">Publisher</a>
                             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">User</a>
                             <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
                           </div>
@@ -60,82 +61,7 @@
                                 <button class="btn btn-primary" type="submit">Delete eBook</button>
 
                                 <!--Add eBook model-->
-                                <div id="addeBook" class="modal" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title">Adding eBook</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        <form action="/ebook/add" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="modal-body">
-
-                                                    <div class="form-group row">
-                                                    <label for="ebookTitle" class="col-sm-2 col-form-label">Title</label>
-                                                        <div class="col-sm-10">
-                                                            <input name="title" type="text" class="form-control" id="ebookTitle" placeholder="Enter title" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                    <label for="ebookDescription" class="col-sm-2 col-form-label">Description</label>
-                                                        <div class="col-sm-10">
-                                                            <textarea name="description" class="form-control" id="ebookDescription" rows="3" placeholder="Enter description" required></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label for="ebookCategory" class="col-sm-2 col-form-label">Category</label>
-                                                        <div class="col-sm-10">
-                                                            <select id="ebookCategory" class="form-control" name="category" required>
-                                                                <option selected>Choose category...</option>
-                                                                <option value="eMagazine">eMagazine</option>
-                                                                <option value="eNewspaper">eNewspaper</option>
-                                                                <option value="eJournal">eJournal</option>
-                                                                <option value="othereBook">Other eBooks</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                            <label for="ebookAuthor" class="col-sm-2 col-form-label">Author</label>
-                                                            <div class="col-sm-10">
-                                                                <select id="ebookAuthor" class="form-control" name="author">
-                                                                    <option selected>Choose author...</option>
-                                                                    @foreach ($authors as $author)
-                                                                        <option value="{{$author->name}}">{{$author->name}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    <div class="form-group row">
-                                                    <label for="ebookPrice" class="col-sm-2 col-form-label">Price</label>
-                                                        <div class="col-sm-10">
-                                                            <input name="price" type="number" class="form-control" id="ebookPrice" placeholder="Enter price" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                    <label for="ebookCoverpic" class="col-sm-2 col-form-label">Choose Cover</label>
-                                                        <div class="col-sm-10">
-                                                            <input name="coverpic" type="file" class="form-control" id="ebookCoverpic" accept="image/*" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                    <label for="ebookPdf" class="col-sm-2 col-form-label">Choose Pdf</label>
-                                                        <div class="col-sm-10">
-                                                            <input name="pdf" type="file" class="form-control" id="ebookPdf" accept=".pdf" required>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Add</button>
-                                            </div>
-                                        </form>
-                                      </div>
-                                    </div>
-                                  </div>
-
+                                @include('/admin/boostrap-models/ebookaddmodel')
                             </div>
 
                             <!--This is authors related-->
@@ -145,41 +71,20 @@
                                 <button class="btn btn-primary" type="submit">Delete Author</button>
 
                                 <!--Add author model-->
-                                <div id="addAuthor" class="modal" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title">Adding Author</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <form action="/author/add" method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="form-group row">
-                                                    <label for="authorName" class="col-sm-2 col-form-label">Name</label>
-                                                        <div class="col-sm-10">
-                                                            <input name="name" type="text" class="form-control" id="authorName" placeholder="Enter Name" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                    <label for="authorEmail" class="col-sm-2 col-form-label">Email</label>
-                                                        <div class="col-sm-10">
-                                                            <input name="email" type="email" class="form-control" id="authorEmail" placeholder="Enter Email" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Add</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                                @include('/admin/boostrap-models/authoraddmodel')
 
                             </div>
+
+                            <!--This is publisher related-->
+                            <div class="tab-pane fade" id="list-publisher" role="tabpanel" aria-labelledby="list-publisher-list">
+                                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addPublisher">Add Publisher</button>
+                                    <button class="btn btn-primary" type="submit">Update Publisher</button>
+                                    <button class="btn btn-primary" type="submit">Delete Publisher</button>
+
+                                    <!--Add publisher model-->
+                                    @include('/admin/boostrap-models/publisheraddmodel')
+
+                                </div>
 
                             <!--This is users related-->
                             <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
