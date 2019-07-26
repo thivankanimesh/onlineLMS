@@ -22,14 +22,17 @@ class EbookController extends Controller
         $coverpic=$req->file('coverpic');
         $pdf=$req->file('pdf');
 
-        $coverpic->storeAs('coverpics','coverpic'.time().'.jpg');
-        $pdf->storeAs('pdfs','pdf'.time().'.pdf');
+        $coverpicName='coverpic'.time().'.jpg';
+        $pdfName='pdf'.time().'.pdf';
+
+        $coverpic->storeAs('coverpics',$coverpicName,'public');
+        $pdf->storeAs('pdfs',$pdfName);
 
         $ebook->title=$title;
         $ebook->desc=$description;
         $ebook->price=$price;
-        $ebook->coverpic=$req->file('coverpic')->getClientOriginalName();
-        $ebook->pdf=$req->file('pdf')->getClientOriginalName();
+        $ebook->coverpic=$coverpicName;
+        $ebook->pdf=$pdfName;
 
         $ebook->save();
 

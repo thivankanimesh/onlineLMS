@@ -47,7 +47,23 @@
             @endif
 
             <div class="container">
+                    <div class="row justify-content-center">
+                @foreach ($ebooks as $ebook)
 
+                <div class="col-md-3.5">
+                <div class="card" style="width: 18rem;">
+                        <img src="{{Storage::url('coverpics/'.$ebook->coverpic)}}" class="card-img-top" alt="..." width="286" height="180">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$ebook->title}}</h5>
+                          <p class="card-text">{{$ebook->desc}}</p>
+                          <h5 class="card-title">Price {{$ebook->price}}</h5>
+                          <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                      </div>
+                </div>
+
+                @endforeach
+            </div>
             </div>
         </div>
     </body>
