@@ -25,6 +25,8 @@ Route::get('/admin/logout','AdminController@logout');
 
 Route::post('/ebook/add','EbookController@add');
 
+Route::post('/ebook/update/{id}','EbookController@update');
+
 Route::post('/author/add','AuthorController@add');
 
 Route::post('/publisher/add','PublisherController@add');

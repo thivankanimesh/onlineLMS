@@ -57,11 +57,42 @@
                             <!--This is ebooks related-->
                             <div class="tab-pane fade" id="list-ebook" role="tabpanel" aria-labelledby="list-ebook-list">
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addeBook">Add eBook</button>
-                                <button class="btn btn-primary" type="submit">Update eBook</button>
-                                <button class="btn btn-primary" type="submit">Delete eBook</button>
+
+                                <!--This is ebooks list-->
+                                <div class="container">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col"></th>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Author</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Edit</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach ($ebooks as $ebook)
+                                            <tr>
+                                                <th scope="row">{{$loop->index+1}}</th>
+                                                <td><img src="{{Storage::url('coverpics/'.$ebook->coverpic)}}"  alt="..." width="50" height="50"></td>
+                                                <td>{{$ebook->title}}</td>
+                                                <td>{{$ebook->author}}</td>
+                                                <td>{{$ebook->price}}</td>
+                                                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#ebookupdatemodel{{$ebook->eid}}">Edit</button></td>
+                                                @include('/admin/boostrap-models/ebookupdatemodel')
+                                            </tr>
+
+                                            @endforeach
+
+                                        </tbody>
+                                      </table>
+                                </div>
 
                                 <!--Add eBook model-->
                                 @include('/admin/boostrap-models/ebookaddmodel')
+
                             </div>
 
                             <!--This is authors related-->
