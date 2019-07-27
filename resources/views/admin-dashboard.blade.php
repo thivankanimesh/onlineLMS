@@ -69,6 +69,7 @@
                                             <th scope="col">Author</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Edit</th>
+                                            <th scope="col">Delete</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -82,6 +83,8 @@
                                                 <td>{{$ebook->price}}</td>
                                                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#ebookupdatemodel{{$ebook->eid}}">Edit</button></td>
                                                 @include('/admin/boostrap-models/ebookupdatemodel')
+                                                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ebookdeletemodel{{$ebook->eid}}">Delete</button></td>
+                                                @include('/admin/boostrap-models/ebookdeletemodel')
                                             </tr>
 
                                             @endforeach

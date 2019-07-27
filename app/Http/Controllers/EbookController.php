@@ -61,6 +61,11 @@ class EbookController extends Controller
         $coverpicName='coverpic'.time().'.jpg';
         $pdfName='pdf'.time().'.pdf';
 
+        // delete previous file
+        Storage::disk('public')->delete('coverpics/'.$ebook->coverpic);
+       // Storage::disk('local')->delete('pdfs/',$ebook->pdf);
+        Storage::delete('pdfs/'.$ebook->pdf);
+
         $coverpic->storeAs('coverpics',$coverpicName,'public');
         $pdf->storeAs('pdfs',$pdfName);
 
@@ -78,7 +83,14 @@ class EbookController extends Controller
         return redirect('/admin');
     }
 
-    public function delete(Request $req){
+    public function delete(Request $req,$id){
+        $ebook=Ebook::find($id);
 
+        Storage::delete('pdfs/'.$ebook->pdf);
+        Storage::disk('public')->delete('coverpics/'.$ebook->coverpic);
+
+        $ebook::where('eid',$id)->delete();
+
+        return redirect('/admin');
     }
 }

@@ -27,6 +27,8 @@ Route::post('/ebook/add','EbookController@add');
 
 Route::post('/ebook/update/{id}','EbookController@update');
 
+Route::get('/ebook/delete/{id}','EbookController@delete');
+
 Route::post('/author/add','AuthorController@add');
 
 Route::post('/publisher/add','PublisherController@add');
