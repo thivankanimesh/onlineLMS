@@ -63,7 +63,6 @@ class EbookController extends Controller
 
         // delete previous file
         Storage::disk('public')->delete('coverpics/'.$ebook->coverpic);
-       // Storage::disk('local')->delete('pdfs/',$ebook->pdf);
         Storage::delete('pdfs/'.$ebook->pdf);
 
         $coverpic->storeAs('coverpics',$coverpicName,'public');

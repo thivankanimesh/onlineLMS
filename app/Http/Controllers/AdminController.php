@@ -14,10 +14,15 @@ class AdminController extends Controller
 
         $authors=Author::all();
         $publishers=Publisher::all();
-        $ebooks=Ebook::all();
+        $ebooks=Ebook::paginate(2);
 
         if($req->session()->has('logged')){
-            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks]);
+
+            if($req->ajax()){
+                return view('admin/boostrap-tables/ebooktable')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks])->render();
+            }else{
+                return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks])->render();
+            }
         }else{
             return redirect('/admin/login');
         }
@@ -31,11 +36,11 @@ class AdminController extends Controller
         $admin=Admin::find(1);
         $authors=Author::all();
         $publishers=Publisher::all();
-        $ebooks=Ebook::all();
+        $ebooks=Ebook::paginate(2);
 
         if($admin->email==$email&&$admin->password==$password){
             $req->session()->put('logged',$email);
-            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks]);
+            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks])->render();
         }else{
             return view('admin-login');
         }
