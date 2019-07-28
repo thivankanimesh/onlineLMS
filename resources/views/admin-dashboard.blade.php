@@ -86,6 +86,9 @@
                             <div class="tab-pane fade" id="list-publisher" role="tabpanel" aria-labelledby="list-publisher-list">
                                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addPublisher">Add Publisher</button>
 
+                                    <!--This is recently added publishers table-->
+                                    @include('/admin/boostrap-tables/publishertable')
+
                                     <!--Add publisher model-->
                                     @include('/admin/boostrap-models/publisheraddmodel')
 

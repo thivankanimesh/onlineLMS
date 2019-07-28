@@ -51,7 +51,7 @@
                                     <div class="col-sm-10">
                                         <select id="ebookPublisher" class="form-control" name="publisher">
                                             <option selected>{{$ebook->publisher}}</option>
-                                            @foreach ($publisher as $publisher)
+                                            @foreach ($publishers as $publisher)
                                                 <option value="{{$publisher->name}}">{{$publisher->name}}</option>
                                             @endforeach
                                         </select>

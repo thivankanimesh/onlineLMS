@@ -26,11 +26,29 @@ class PublisherController extends Controller
         return redirect('/admin');
     }
 
-    public function modify(){
+    public function update(Request $req, $id){
+
+        $publisher = Publisher::find($id);
+
+        $name=$req->name;
+        $email=$req->email;
+
+        $publisher->name=$name;
+        $publisher->email=$email;
+
+        $publisher->save();
+
+        return redirect('/admin');
 
     }
 
-    public function delete(){
+    public function delete(Request $req, $id){
+
+        $publisher = Publisher::find($id);
+
+        $publisher::where('publisherId',$id)->delete();
+
+        return redirect('/admin');
 
     }
 }

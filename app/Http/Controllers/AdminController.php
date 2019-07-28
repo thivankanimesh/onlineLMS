@@ -19,7 +19,7 @@ class AdminController extends Controller
 
         if($req->session()->has('logged')){
 
-            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks]);
+            return view('admin-dashboard')->with(['authors'=>$authors,'publishers'=>$publishers,'ebooks'=>$ebooks]);
 
         }else{
             return redirect('/admin/login');
