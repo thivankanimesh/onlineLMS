@@ -7,6 +7,7 @@ use App\Author;
 use App\Publisher;
 use App\Ebook;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AdminController extends Controller
 {
@@ -14,15 +15,12 @@ class AdminController extends Controller
 
         $authors=Author::all();
         $publishers=Publisher::all();
-        $ebooks=Ebook::paginate(2);
+        $ebooks=Ebook::orderBy('eid','desc')->get();
 
         if($req->session()->has('logged')){
 
-            if($req->ajax()){
-                return view('admin/boostrap-tables/ebooktable')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks])->render();
-            }else{
-                return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks])->render();
-            }
+            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks]);
+
         }else{
             return redirect('/admin/login');
         }
@@ -40,7 +38,7 @@ class AdminController extends Controller
 
         if($admin->email==$email&&$admin->password==$password){
             $req->session()->put('logged',$email);
-            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks])->render();
+            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks]);
         }else{
             return view('admin-login');
         }

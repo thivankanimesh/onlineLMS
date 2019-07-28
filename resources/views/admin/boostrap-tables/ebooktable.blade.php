@@ -31,26 +31,4 @@
         </tbody>
     </table>
 
-    {!! $ebooks->links() !!}
-
-    <script>
-            $(document).ready(function(){
-
-                $('.pagination a').click(function(event){
-                    event.preventDefault();
-                    var page=$(this).attr('href').split('page=')[1];
-                    fetch_data(page);
-                });
-
-                function fetch_data(page){
-                    $.ajax({
-                        url:"admin?page="+page,
-                        success:function(result){
-                            $('#ebook_table_data').html(result);
-                        }
-                    });
-                }
-            });
-        </script>
-
 </div>
