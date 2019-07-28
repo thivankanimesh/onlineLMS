@@ -60,12 +60,10 @@
                             <div class="tab-pane fade" id="list-ebook" role="tabpanel" aria-labelledby="list-ebook-list">
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addeBook">Add eBook</button>
 
-                                <!--This is ebooks table-->
+                                <!--This is recently added ebooks table-->
                                 <div id="ebooktable" class="ebooktable">
                                 @include('/admin/boostrap-tables/ebooktable')
                                 </div>
-
-
 
                                 <!--Add eBook model-->
                                 @include('/admin/boostrap-models/ebookaddmodel')
@@ -75,8 +73,9 @@
                             <!--This is authors related-->
                             <div class="tab-pane fade" id="list-author" role="tabpanel" aria-labelledby="list-author-list">
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addAuthor">Add Author</button>
-                                <button class="btn btn-primary" type="submit">Update Author</button>
-                                <button class="btn btn-primary" type="submit">Delete Author</button>
+
+                                <!--This is recently added authors table-->
+                                @include('/admin/boostrap-tables/authortable')
 
                                 <!--Add author model-->
                                 @include('/admin/boostrap-models/authoraddmodel')
@@ -86,8 +85,6 @@
                             <!--This is publisher related-->
                             <div class="tab-pane fade" id="list-publisher" role="tabpanel" aria-labelledby="list-publisher-list">
                                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addPublisher">Add Publisher</button>
-                                    <button class="btn btn-primary" type="submit">Update Publisher</button>
-                                    <button class="btn btn-primary" type="submit">Delete Publisher</button>
 
                                     <!--Add publisher model-->
                                     @include('/admin/boostrap-models/publisheraddmodel')

@@ -31,6 +31,10 @@ Route::get('/ebook/delete/{id}','EbookController@delete');
 
 Route::post('/author/add','AuthorController@add');
 
+Route::post('/author/update/{id}','AuthorController@update');
+
+Route::get('/author/delete/{id}','AuthorController@delete');
+
 Route::post('/publisher/add','PublisherController@add');
 
 Route::get('/pay','PaymentController@payWithpaypal');

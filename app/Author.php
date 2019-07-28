@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     protected $table="author";
-    protected $primaryKey="AuthorId";
+    protected $primaryKey="authorId";
     public $incrementing = true;
     public $timestamps = true;
 }
