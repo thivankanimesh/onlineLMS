@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -23,6 +25,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+
+        $countOfshoppingcartItems=DB::table('shoppingcart'.Auth::id())->count();
+
+        return view('profile')->with(['countOfshoppingcartItems'=>$countOfshoppingcartItems]);
     }
 }

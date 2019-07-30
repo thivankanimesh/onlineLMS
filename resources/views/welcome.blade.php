@@ -28,6 +28,9 @@
 
                             @auth
                                 <a href="{{ url('/profile') }}">Profile</a>
+                                <a href="{{url('/shoppingcart')}}" class="btn btn-primary">
+                                    Shoppingcart <span class="badge badge-light">{{$countOfshoppingcartItems}}</span>
+                                </a>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -58,7 +61,7 @@
                           <h5 class="card-title">{{$ebook->title}}</h5>
                           <p class="card-text">{{$ebook->desc}}</p>
                           <h5 class="card-title">Price {{$ebook->price}}</h5>
-                          <a href="#" class="btn btn-primary">View</a>
+                          <a href="/shoppingcart/{{$ebook->eid}}" class="btn btn-primary">Add To Cart</a>
                         </div>
                       </div>
                 </div>

@@ -38,7 +38,7 @@ class AdminController extends Controller
 
         if($admin->email==$email&&$admin->password==$password){
             $req->session()->put('logged',$email);
-            return view('admin-dashboard')->with(['authors'=>$authors,'publisher'=>$publishers,'ebooks'=>$ebooks]);
+            return view('admin-dashboard')->with(['authors'=>$authors,'publishers'=>$publishers,'ebooks'=>$ebooks]);
         }else{
             return view('admin-login');
         }

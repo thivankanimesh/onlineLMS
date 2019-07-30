@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('shoppingcartLogo')
+<a href="{{url('/shoppingcart')}}" class="btn btn-primary">
+    Shoppingcart <span class="badge badge-light">{{$countOfshoppingcartItems}}</span>
+</a>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

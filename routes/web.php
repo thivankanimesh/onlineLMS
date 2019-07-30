@@ -41,4 +41,12 @@ Route::post('/publisher/update/{id}','PublisherController@update');
 
 Route::get('/publisher/delete/{id}','PublisherController@delete');
 
+Route::get('/shoppingcart','ShoppingCartController@index');
+
+Route::get('/shoppingcart/{id}','ShoppingCartController@addToCart');
+
+Route::get('/shoppingcart/changequantity/{id}','ShoppingCartController@changeQuantity');
+
+Route::get('/shoppingcart/removefromcart/{id}','ShoppingCartController@removeFromCart');
+
 Route::get('/pay','PaymentController@payWithpaypal');

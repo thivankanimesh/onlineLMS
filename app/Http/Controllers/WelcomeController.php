@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Auth;
 use App\Ebook;
+use App\ShoppingCart;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -12,6 +15,13 @@ class WelcomeController extends Controller
         //book fetching
         $ebooks=Ebook::all();
 
-        return view('welcome')->with('ebooks',$ebooks);
+        if(Auth::check()){
+            $countOfshoppingcartItems=DB::table('shoppingcart'.Auth::id())->count();
+
+            return view('welcome')->with(['ebooks'=>$ebooks,'countOfshoppingcartItems'=>$countOfshoppingcartItems]);
+        }else{
+            return view('welcome')->with(['ebooks'=>$ebooks]);
+        }
+
     }
 }
