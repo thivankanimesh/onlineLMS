@@ -43,10 +43,12 @@ Route::get('/publisher/delete/{id}','PublisherController@delete');
 
 Route::get('/shoppingcart','ShoppingCartController@index');
 
-Route::get('/shoppingcart/{id}','ShoppingCartController@addToCart');
+Route::get('/shoppingcart/addtocart/{id}','ShoppingCartController@addToCart');
 
 Route::get('/shoppingcart/changequantity/{id}','ShoppingCartController@changeQuantity');
 
 Route::get('/shoppingcart/removefromcart/{id}','ShoppingCartController@removeFromCart');
 
-Route::get('/pay','PaymentController@payWithpaypal');
+Route::get('/shoppingcart/purchase','ShoppingCartController@purchase');
+
+Route::get('/pay/{subtotal}','PaymentController@payWithpaypal');

@@ -16,6 +16,19 @@ class ShoppingCartService{
 
         $lineItem=new LineItem($id);
 
+        if(!Schema::hasTable('shoppingcart'.Auth::id())){
+            DB::statement('CREATE TABLE shoppingcart'.Auth::id().' (
+                lineNo int AUTO_INCREMENT PRIMARY KEY,
+                itemName varchar(255),
+                description varchar(255),
+                quantity int(10),
+                itemPrice int(10),
+                total int(10),
+                updated_at varchar(100),
+                created_at varchar(100)
+            )');
+        }
+
         $shoppingcart=new ShoppingCart();
 
         $shoppingcart->setTable('shoppingcart'.Auth::id());
@@ -51,6 +64,17 @@ class ShoppingCartService{
 
         DB::table('shoppingcart'.Auth::id())->where('lineNo',$id)->update(['quantity'=>$quantity,'total'=>$total]);
 
+    }
+
+    public function getSubTotal(){
+
+        $shoppingcart = new ShoppingCart();
+
+        $shoppingcart->setTable('shoppingcart'.Auth::id());
+
+        $sumOfColTotal=$shoppingcart->sum('total');
+
+        return $sumOfColTotal;
     }
 
 }

@@ -13,6 +13,7 @@ use PayPal\Api\Amount;
 use PayPal\Api\Payment;
 use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
+use Config;
 use URL;
 use Session;
 use Redirect;
@@ -29,7 +30,7 @@ class PaymentController extends Controller
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
 
-    public function payWithpaypal(Request $request){
+    public function payWithpaypal(Request $request, $subtotal){
 
         $payer = new Payer();
         $item_1 = new Item();
@@ -41,12 +42,13 @@ class PaymentController extends Controller
 
         $payer->setPaymentMethod('paypal');
 
-        $item_1->setName('Item 1')->setCurrency('USD')->setQuantity(1)->setPrice($request->get('amount'));
-        $item_list->setItems(array($item_1));
+        //$item_1->setName('Item 1')->setCurrency('USD')->setQuantity(1)->setPrice($subtotal);
+        //$item_list->setItems(array($item_1));
 
-        $amount->setCurrency('USD')->setTotal($request->get('amount'));
+        $amount->setCurrency('USD')->setTotal($subtotal);
 
-        $transaction->setAmount($amount)->setItemList($item_list)->setDescription('Your transaction description');
+        //$transaction->setAmount($amount)->setItemList($item_list)->setDescription('Your transaction description');
+        $transaction->setAmount($amount);
 
         $redirect_urls->setReturnUrl(URL::route('profile'))->setCancelUrl(URL::route('profile'));
 
