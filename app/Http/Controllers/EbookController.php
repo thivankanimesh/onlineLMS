@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ebook;
+use App\Optional\EbookService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,7 @@ class EbookController extends Controller
 
     public function add(Request $req){
 
-        $ebook=new Ebook();
+        $ebookService=new EbookService();
 
         $title=$req->get('title');
         $description=$req->get('description');
@@ -25,29 +26,15 @@ class EbookController extends Controller
         $coverpic=$req->file('coverpic');
         $pdf=$req->file('pdf');
 
-        $coverpicName='coverpic'.time().'.jpg';
-        $pdfName='pdf'.time().'.pdf';
-
-        $coverpic->storeAs('coverpics',$coverpicName,'public');
-        $pdf->storeAs('pdfs',$pdfName);
-
-        $ebook->title=$title;
-        $ebook->desc=$description;
-        $ebook->category=$category;
-        $ebook->author=$author;
-        $ebook->publisher=$publisher;
-        $ebook->price=$price;
-        $ebook->coverpic=$coverpicName;
-        $ebook->pdf=$pdfName;
-
-        $ebook->save();
+        $ebookService->addEbook($title,$description,$category,$author,$publisher,$price,$coverpic,$pdf);
 
         return redirect('/admin');
 
     }
 
     public function update(Request $req,$id){
-        $ebook=Ebook::find($id);
+
+        $ebookService=new EbookService();
 
         $title=$req->get('title');
         $description=$req->get('description');
@@ -58,37 +45,16 @@ class EbookController extends Controller
         $coverpic=$req->file('coverpic');
         $pdf=$req->file('pdf');
 
-        $coverpicName='coverpic'.time().'.jpg';
-        $pdfName='pdf'.time().'.pdf';
-
-        // delete previous file
-        Storage::disk('public')->delete('coverpics/'.$ebook->coverpic);
-        Storage::delete('pdfs/'.$ebook->pdf);
-
-        $coverpic->storeAs('coverpics',$coverpicName,'public');
-        $pdf->storeAs('pdfs',$pdfName);
-
-        $ebook->title=$title;
-        $ebook->desc=$description;
-        $ebook->category=$category;
-        $ebook->author=$author;
-        $ebook->publisher=$publisher;
-        $ebook->price=$price;
-        $ebook->coverpic=$coverpicName;
-        $ebook->pdf=$pdfName;
-
-        $ebook->save();
+        $ebookService->updateEbook($id,$title,$description,$category,$author,$publisher,$price,$coverpic,$pdf);
 
         return redirect('/admin');
     }
 
     public function delete(Request $req,$id){
-        $ebook=Ebook::find($id);
 
-        Storage::delete('pdfs/'.$ebook->pdf);
-        Storage::disk('public')->delete('coverpics/'.$ebook->coverpic);
+        $ebookService=new EbookService();
 
-        $ebook::where('eid',$id)->delete();
+        $ebookService->deleteEbook($id);
 
         return redirect('/admin');
     }
