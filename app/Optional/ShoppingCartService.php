@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Schema;
 
 class ShoppingCartService{
 
+    public function init(){
+
+        $shoppingCartItems=DB::table('shoppingcart'.Auth::id())->get();
+        $subTotal=DB::table('shoppingcart'.Auth::id())->sum('total');
+
+        return ['shoppingCartItems'=>$shoppingCartItems,'subTotal'=>$subTotal];
+
+    }
+
     public function addToCart($id){
 
         $lineItem=new LineItem($id);
@@ -72,17 +81,6 @@ class ShoppingCartService{
         DB::table('shoppingcart'.Auth::id())->where('lineNo',$id)->update(['quantity'=>$quantity,'total'=>$total]);
 
     }
-
-    // public function getSubTotal(){
-
-    //     $shoppingcart = new ShoppingCart();
-
-    //     $shoppingcart->setTable('shoppingcart'.Auth::id());
-
-    //     $sumOfColTotal=$shoppingcart->sum('total');
-
-    //     return $sumOfColTotal;
-    // }
 
     public function purchase(){
 

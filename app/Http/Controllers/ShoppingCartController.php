@@ -17,10 +17,10 @@ class ShoppingCartController extends Controller
 
         if(Auth::check()){
 
-            $shoppingCartItems=DB::table('shoppingcart'.Auth::id())->get();
-            $subTotal=DB::table('shoppingcart'.Auth::id())->sum('total');
+            $shoppingcartservice=new ShoppingCartService();
+            $viewsArray=$shoppingcartservice->init();
 
-            return view('/shoppingcart/shoppingcart')->with(['shoppingCartItems'=>$shoppingCartItems,'subTotal'=>$subTotal]);
+            return view('/shoppingcart/shoppingcart')->with($viewsArray);
 
         }else{
 
@@ -34,7 +34,6 @@ class ShoppingCartController extends Controller
         if(Auth::check()){
 
             $shoppingcartservice=new ShoppingCartService();
-
             $shoppingcartservice->addToCart($id);
 
             return redirect('/');
