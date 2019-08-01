@@ -37,7 +37,7 @@ class ShoppingCartService{
                 total int(10),
                 updated_at varchar(100),
                 created_at varchar(100),
-                ebookId int(10)
+                ebookId bigint(20) unsigned
             )');
 
             DB::statement('ALTER TABLE shoppingcart'.Auth::id().'
@@ -45,8 +45,6 @@ class ShoppingCartService{
         }
 
         $shoppingcart=new ShoppingCart();
-
-        $shoppingcart->setTable('shoppingcart'.Auth::id());
 
         $shoppingcart->lineNo=$lineItem->getLineNo();
         $shoppingcart->itemName=$lineItem->getItemName();
@@ -69,8 +67,6 @@ class ShoppingCartService{
 
         $shoppingcart = new ShoppingCart();
 
-        $shoppingcart->setTable('shoppingcart'.Auth::id());
-
         $filteredResult=$shoppingcart->where('lineNo',$id)->get('itemPrice','total');
 
         $itemPrice=$filteredResult[0]->itemPrice;
@@ -85,8 +81,6 @@ class ShoppingCartService{
     public function purchase(){
 
         $shoppingcart = new ShoppingCart();
-
-        $shoppingcart->setTable('shoppingcart'.Auth::id());
 
         $sumOfColTotal=$shoppingcart->sum('total');
 
