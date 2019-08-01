@@ -12,15 +12,18 @@ class LineItem{
     private $quantity;
     private $itemPrice;
     private $total;
+    private $ebookId;
 
     public function __construct($id){
 
         $ebook=Ebook::find($id);
+
         $this->itemName=$ebook->title;
         $this->description=$ebook->desc;
         $this->quantity=1;
         $this->itemPrice=$ebook->price;
         $this->total=$this->itemPrice*$this->quantity;
+        $this->ebookId=$ebook->eid;
 
     }
 
@@ -46,6 +49,10 @@ class LineItem{
 
     public function getTotal(){
         return $this->total;
+    }
+
+    public function getEbookId(){
+        return $this->ebookId;
     }
 
     public function changeQuantity($quantity){

@@ -86,7 +86,7 @@ class ShoppingCartController extends Controller
 
             $shoppingcartservice=new ShoppingCartService();
 
-            $subTotal=$shoppingcartservice->getSubTotal();
+            $subTotal=$shoppingcartservice->purchase();
 
             return redirect('/pay/'.$subTotal);
 

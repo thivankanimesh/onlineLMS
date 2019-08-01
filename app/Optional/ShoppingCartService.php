@@ -7,6 +7,7 @@ use Auth;
 use App\Ebook;
 use App\ShoppingCart;
 use App\Optional\LineItem;
+use App\Optional\UserStoreService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -17,6 +18,7 @@ class ShoppingCartService{
         $lineItem=new LineItem($id);
 
         if(!Schema::hasTable('shoppingcart'.Auth::id())){
+
             DB::statement('CREATE TABLE shoppingcart'.Auth::id().' (
                 lineNo int AUTO_INCREMENT PRIMARY KEY,
                 itemName varchar(255),
@@ -25,8 +27,12 @@ class ShoppingCartService{
                 itemPrice int(10),
                 total int(10),
                 updated_at varchar(100),
-                created_at varchar(100)
+                created_at varchar(100),
+                ebookId int(10)
             )');
+
+            DB::statement('ALTER TABLE shoppingcart'.Auth::id().'
+            ADD FOREIGN KEY(ebookId) references ebook(eid)');
         }
 
         $shoppingcart=new ShoppingCart();
@@ -39,6 +45,7 @@ class ShoppingCartService{
         $shoppingcart->quantity=$lineItem->getQuantity();
         $shoppingcart->itemPrice=$lineItem->getItemPrice();
         $shoppingcart->total=$lineItem->getTotal();
+        $shoppingcart->ebookId=$lineItem->getEbookId();
 
         $shoppingcart->save();
     }
@@ -66,13 +73,30 @@ class ShoppingCartService{
 
     }
 
-    public function getSubTotal(){
+    // public function getSubTotal(){
+
+    //     $shoppingcart = new ShoppingCart();
+
+    //     $shoppingcart->setTable('shoppingcart'.Auth::id());
+
+    //     $sumOfColTotal=$shoppingcart->sum('total');
+
+    //     return $sumOfColTotal;
+    // }
+
+    public function purchase(){
 
         $shoppingcart = new ShoppingCart();
 
         $shoppingcart->setTable('shoppingcart'.Auth::id());
 
         $sumOfColTotal=$shoppingcart->sum('total');
+
+        $userStoreService=new UserStoreService();
+
+        $userStoreService->store($shoppingcart);
+
+        DB::table('shoppingcart'.Auth::id())->delete();
 
         return $sumOfColTotal;
     }
