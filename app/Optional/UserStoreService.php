@@ -26,7 +26,7 @@ class UserStoreService{
                 pdf varchar(255),
                 updated_at varchar(100),
                 created_at varchar(100),
-                ebookId bigint(10)
+                ebookId bigint(20) unsigned
             )');
 
             DB::statement('ALTER TABLE userstore'.Auth::id().'
@@ -38,11 +38,8 @@ class UserStoreService{
         foreach($ebookIds as $ebookId){
 
             $userStore=new UserStore();
-            $userStore->setTableName('userstore'.Auth::id());
 
             $ebook=Ebook::find($ebookId);
-
-            \error_log($ebook);
 
             $userStore->title=$ebook[0]->title;
             $userStore->description=$ebook[0]->desc;

@@ -2,16 +2,17 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class UserStore extends Model
 {
     protected $table="userstore";
-    protected $primaryKey="ebookId";
+    protected $primaryKey="userStoreItemId";
     public $incrementing = true;
     public $timestamps = true;
 
-    public function setTableName($name){
-        $this->table=$name;
+    public function __construct(){
+        $this->table='userstore'.Auth::id();
     }
 }
