@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Publisher;
+use App\Optional\PublisherService;
 use Illuminate\Http\Request;
 
 class PublisherController extends Controller
@@ -13,30 +13,22 @@ class PublisherController extends Controller
 
     public function add(Request $req){
 
-        $publisher=new Publisher;
-
         $name=$req->name;
         $email=$req->email;
 
-        $publisher->name=$name;
-        $publisher->email=$email;
-
-        $publisher->save();
+        $publisherService=new PublisherService();
+        $publisherService->add($name,$email);
 
         return redirect('/admin');
     }
 
     public function update(Request $req, $id){
 
-        $publisher = Publisher::find($id);
-
         $name=$req->name;
         $email=$req->email;
 
-        $publisher->name=$name;
-        $publisher->email=$email;
-
-        $publisher->save();
+        $publisherService=new PublisherService();
+        $publisherService->update($id,$name,$email);
 
         return redirect('/admin');
 
@@ -44,9 +36,8 @@ class PublisherController extends Controller
 
     public function delete(Request $req, $id){
 
-        $publisher = Publisher::find($id);
-
-        $publisher::where('publisherId',$id)->delete();
+        $publisherService=new PublisherService();
+        $publisherService->delete($id);
 
         return redirect('/admin');
 
