@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Author;
+use App\Optional\AuthorService;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -13,34 +13,22 @@ class AuthorController extends Controller
 
     public function add(Request $req){
 
-        $author=new Author();
-
         $name=$req->get('name');
         $email=$req->get('email');
 
-        $author->name=$name;
-        $author->email=$email;
-
-        $author->save();
+        $authorService=new AuthorService();
+        $authorService->add($name,$email);
 
         return redirect('/admin');
     }
 
     public function update(Request $req, $id){
 
-        $author=Author::find($id);
-
         $name=$req->get('name');
         $email=$req->get('email');
 
-        error_log($author->name.$author->email);
-
-        $author->name=$name;
-        $author->email=$email;
-
-        error_log('Some message here.'.$id.$name.$email);
-
-        $author->save();
+        $authorService=new AuthorService();
+        $authorService->update($id,$name,$email);
 
         return redirect('/admin');
 
@@ -48,9 +36,8 @@ class AuthorController extends Controller
 
     public function delete(Request $req, $id){
 
-        $author=Author::find($id);
-
-        $author::where('authorId',$id)->delete();
+        $authorService=new AuthorService();
+        $authorService->delete($id);
 
         return redirect('/admin');
 
