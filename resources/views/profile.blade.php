@@ -21,23 +21,25 @@
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="list-homelibrary" role="tabpanel" aria-labelledby="list-homelibrary-list">
                 <table class="table">
-                    <caption>List of users</caption>
+                    <caption>List of books</caption>
                     <thead>
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Download</th>
                       </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($ebooks as $ebook)
+                        @foreach ($homeLibraryItems as $homeLibraryItem)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>{{$ebook->title}}</td>
-                            <td>{{$ebook->description}}</td>
-                            <td>{{$ebook->category}}</td>
+                            <th scope="row">{{$homeLibraryItem->homeLibraryItemId}}</th>
+                            <td>{{$homeLibraryItem->title}}</td>
+                            <td>{{$homeLibraryItem->description}}</td>
+                            <td>{{$homeLibraryItem->category}}</td>
+                            <td><a href="/profile/download/{{$homeLibraryItem->homeLibraryItemId}}" type="button" class="btn btn-success">Download</a></td>
                         </tr>
                         @endforeach
 

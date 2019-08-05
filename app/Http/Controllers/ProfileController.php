@@ -26,10 +26,17 @@ class ProfileController extends Controller
      */
     public function index()
     {
-
         $profileService=new ProfileService();
         $viewArrays=$profileService->init();
 
         return view('profile')->with($viewArrays);
+    }
+
+    public function download($id){
+
+        $profileService=new ProfileService();
+        $filePath=$profileService->download($id);
+
+        return response()->download($filePath);
     }
 }

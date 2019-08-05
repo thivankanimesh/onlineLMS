@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
+Route::get('/profile/download/{id}','ProfileController@download');
+
 Route::get('/admin','AdminController@index');
 
 Route::get('/admin/login','AdminController@login');
