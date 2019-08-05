@@ -30,6 +30,7 @@
                         <th scope="col">Description</th>
                         <th scope="col">Category</th>
                         <th scope="col">Download</th>
+                        <th scope="col">Remove</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -42,6 +43,7 @@
                             <td>{{$homeLibraryItem->description}}</td>
                             <td>{{$homeLibraryItem->category}}</td>
                             <td><a href="/profile/download/{{$homeLibraryItem->homeLibraryItemId}}" type="button" class="btn btn-success">Download</a></td>
+                            <td><a href="/profile/delete/{{$homeLibraryItem->homeLibraryItemId}}" type="button" class="btn btn-danger">Remove</a></td>
                         </tr>
                         @endforeach
 

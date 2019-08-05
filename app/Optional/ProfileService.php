@@ -28,4 +28,12 @@ class ProfileService{
 
     }
 
+    public function delete($id){
+
+        $homeLibraryItems=new HomeLibrary();
+
+        $homeLibraryItems::where('homeLibraryItemId',$id)->delete();
+
+    }
+
 }

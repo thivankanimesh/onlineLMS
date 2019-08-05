@@ -19,6 +19,8 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/profile/download/{id}','ProfileController@download');
 
+Route::get('/profile/delete/{id}','ProfileController@delete');
+
 Route::get('/admin','AdminController@index');
 
 Route::get('/admin/login','AdminController@login');

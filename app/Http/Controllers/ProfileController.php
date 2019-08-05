@@ -39,4 +39,12 @@ class ProfileController extends Controller
 
         return response()->download($filePath);
     }
+
+    public function delete($id){
+
+        $profileService=new ProfileService();
+        $profileService->delete($id);
+
+        return $this->index();
+    }
 }
