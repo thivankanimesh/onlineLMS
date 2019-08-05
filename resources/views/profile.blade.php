@@ -25,6 +25,7 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
+                        <th></th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Category</th>
@@ -36,6 +37,7 @@
                         @foreach ($homeLibraryItems as $homeLibraryItem)
                         <tr>
                             <th scope="row">{{$homeLibraryItem->homeLibraryItemId}}</th>
+                            <td><img src="{{Storage::url('coverpics/'.$homeLibraryItem->coverpic)}}" width="50" height="50"></td>
                             <td>{{$homeLibraryItem->title}}</td>
                             <td>{{$homeLibraryItem->description}}</td>
                             <td>{{$homeLibraryItem->category}}</td>
