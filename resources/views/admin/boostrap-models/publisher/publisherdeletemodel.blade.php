@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="/publisher/delete/{{$publisher->publisherId}}" method="GET" enctype="multipart/form-data">
+            <form action="/admin/publisher/delete/{{$publisher->publisherId}}" method="GET" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 

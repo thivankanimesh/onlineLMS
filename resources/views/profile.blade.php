@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('shoppingcartLogo')
-<a href="{{url('/shoppingcart')}}" class="btn btn-primary">
+<a href="{{url('/admin/shoppingcart')}}" class="btn btn-primary">
     Shoppingcart <span class="badge badge-light">{{$countOfshoppingcartItems}}</span>
 </a>
 @endsection

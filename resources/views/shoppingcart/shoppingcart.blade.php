@@ -42,7 +42,7 @@
             {{$subTotal}}
         </div>
         <div class="float-right col-2">
-            <form action='/shoppingcart/purchase'>
+            <form action='/admin/shoppingcart/purchase'>
                 <button class="btn btn-warning col-12" type="submit">Purchase</button>
             </form>
         </div>

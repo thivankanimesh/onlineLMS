@@ -87,7 +87,7 @@ class ShoppingCartController extends Controller
 
             $subTotal=$shoppingcartservice->purchase();
 
-            return redirect('/pay/'.$subTotal);
+            return redirect('/admin/shoppingcart/purchase/pay/'.$subTotal);
 
         }else{
 

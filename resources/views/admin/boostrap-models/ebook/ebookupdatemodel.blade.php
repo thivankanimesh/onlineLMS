@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="/ebook/update/{{$ebook->eid}}" method="POST" enctype="multipart/form-data">
+            <form action="/admin/ebook/update/{{$ebook->eid}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 

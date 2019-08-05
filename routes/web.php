@@ -27,32 +27,32 @@ Route::get('/admin/login','AdminController@login');
 
 Route::get('/admin/logout','AdminController@logout');
 
-Route::post('/ebook/add','EbookController@add');
+Route::post('/admin/ebook/add','EbookController@add');
 
-Route::post('/ebook/update/{id}','EbookController@update');
+Route::post('/admin/ebook/update/{id}','EbookController@update');
 
-Route::get('/ebook/delete/{id}','EbookController@delete');
+Route::get('/admin/ebook/delete/{id}','EbookController@delete');
 
-Route::post('/author/add','AuthorController@add');
+Route::post('/admin/author/add','AuthorController@add');
 
-Route::post('/author/update/{id}','AuthorController@update');
+Route::post('/admin/author/update/{id}','AuthorController@update');
 
-Route::get('/author/delete/{id}','AuthorController@delete');
+Route::get('/admin/author/delete/{id}','AuthorController@delete');
 
-Route::post('/publisher/add','PublisherController@add');
+Route::post('/admin/publisher/add','PublisherController@add');
 
-Route::post('/publisher/update/{id}','PublisherController@update');
+Route::post('/admin/publisher/update/{id}','PublisherController@update');
 
-Route::get('/publisher/delete/{id}','PublisherController@delete');
+Route::get('/admin/publisher/delete/{id}','PublisherController@delete');
 
-Route::get('/shoppingcart','ShoppingCartController@index');
+Route::get('/admin/shoppingcart','ShoppingCartController@index');
 
-Route::get('/shoppingcart/addtocart/{id}','ShoppingCartController@addToCart');
+Route::get('/admin/shoppingcart/addtocart/{id}','ShoppingCartController@addToCart');
 
-Route::get('/shoppingcart/changequantity/{id}','ShoppingCartController@changeQuantity');
+Route::get('/admin/shoppingcart/changequantity/{id}','ShoppingCartController@changeQuantity');
 
-Route::get('/shoppingcart/removefromcart/{id}','ShoppingCartController@removeFromCart');
+Route::get('/admin/shoppingcart/removefromcart/{id}','ShoppingCartController@removeFromCart');
 
-Route::get('/shoppingcart/purchase','ShoppingCartController@purchase');
+Route::get('/admin/shoppingcart/purchase','ShoppingCartController@purchase');
 
-Route::get('/pay/{subtotal}','PaymentController@payWithpaypal');
+Route::get('/admin/shoppingcart/purchase/pay/{subtotal}','PaymentController@payWithpaypal');

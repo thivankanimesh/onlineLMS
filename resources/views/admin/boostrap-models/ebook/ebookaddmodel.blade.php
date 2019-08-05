@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="/ebook/add" method="POST" enctype="multipart/form-data">
+            <form action="/admin/ebook/add" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 

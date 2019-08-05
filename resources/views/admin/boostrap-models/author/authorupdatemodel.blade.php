@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form action="/author/update/{{$author->authorId}}" method="POST" enctype="multipart/form-data">
+                <form action="/admin/author/update/{{$author->authorId}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group row">

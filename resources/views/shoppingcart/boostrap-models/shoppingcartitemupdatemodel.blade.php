@@ -7,7 +7,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="/shoppingcart/changequantity/{{$shoppingCartItem->lineNo}}" method="GET" enctype="multipart/form-data">
+        <form action="/admin/shoppingcart/changequantity/{{$shoppingCartItem->lineNo}}" method="GET" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
 
