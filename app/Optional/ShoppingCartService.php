@@ -7,7 +7,7 @@ use Auth;
 use App\Ebook;
 use App\ShoppingCart;
 use App\Optional\LineItem;
-use App\Optional\UserStoreService;
+use App\Optional\HomeLibraryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -84,9 +84,9 @@ class ShoppingCartService{
 
         $sumOfColTotal=$shoppingcart->sum('total');
 
-        $userStoreService=new UserStoreService();
+        $homeLibraryService=new HomeLibraryService();
 
-        $userStoreService->store($shoppingcart);
+        $homeLibraryService->store($shoppingcart);
 
         DB::table('shoppingcart'.Auth::id())->delete();
 
