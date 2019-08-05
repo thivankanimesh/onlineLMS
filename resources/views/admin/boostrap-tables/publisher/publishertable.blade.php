@@ -17,9 +17,9 @@
                     <td>{{$publisher->name}}</td>
                     <td>{{$publisher->email}}</td>
                     <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#publisherupdatemodel{{$publisher->publisherId}}">Edit</button></td>
-                    @include('/admin/boostrap-models/publisherupdatemodel')
+                    @include('/admin/boostrap-models/publisher/publisherupdatemodel')
                     <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#publisherdeletemodel{{$publisher->publisherId}}">Delete</button></td>
-                    @include('/admin/boostrap-models/publisherdeletemodel')
+                    @include('/admin/boostrap-models/publisher/publisherdeletemodel')
                 </tr>
 
                 @endforeach

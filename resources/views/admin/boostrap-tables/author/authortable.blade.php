@@ -17,9 +17,9 @@
                     <td>{{$author->name}}</td>
                     <td>{{$author->email}}</td>
                     <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#authorupdatemodel{{$author->authorId}}">Edit</button></td>
-                    @include('/admin/boostrap-models/authorupdatemodel')
+                    @include('/admin/boostrap-models/author/authorupdatemodel')
                     <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#authordeletemodel{{$author->authorId}}">Delete</button></td>
-                    @include('/admin/boostrap-models/authordeletemodel')
+                    @include('/admin/boostrap-models/author/authordeletemodel')
                 </tr>
 
                 @endforeach

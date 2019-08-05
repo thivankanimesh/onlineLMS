@@ -21,9 +21,9 @@
                 <td>{{$ebook->author}}</td>
                 <td>{{$ebook->price}}</td>
                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#ebookupdatemodel{{$ebook->eid}}">Edit</button></td>
-                @include('/admin/boostrap-models/ebookupdatemodel')
+                @include('/admin/boostrap-models/ebook/ebookupdatemodel')
                 <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ebookdeletemodel{{$ebook->eid}}">Delete</button></td>
-                @include('/admin/boostrap-models/ebookdeletemodel')
+                @include('/admin/boostrap-models/ebook/ebookdeletemodel')
             </tr>
 
             @endforeach

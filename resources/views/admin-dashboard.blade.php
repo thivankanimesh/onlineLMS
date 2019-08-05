@@ -62,11 +62,11 @@
 
                                 <!--This is recently added ebooks table-->
                                 <div id="ebooktable" class="ebooktable">
-                                @include('/admin/boostrap-tables/ebooktable')
+                                @include('/admin/boostrap-tables/ebook/ebooktable')
                                 </div>
 
                                 <!--Add eBook model-->
-                                @include('/admin/boostrap-models/ebookaddmodel')
+                                @include('/admin/boostrap-models/ebook/ebookaddmodel')
 
                             </div>
 
@@ -75,10 +75,10 @@
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addAuthor">Add Author</button>
 
                                 <!--This is recently added authors table-->
-                                @include('/admin/boostrap-tables/authortable')
+                                @include('/admin/boostrap-tables/author/authortable')
 
                                 <!--Add author model-->
-                                @include('/admin/boostrap-models/authoraddmodel')
+                                @include('/admin/boostrap-models/author/authoraddmodel')
 
                             </div>
 
@@ -87,10 +87,10 @@
                                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addPublisher">Add Publisher</button>
 
                                     <!--This is recently added publishers table-->
-                                    @include('/admin/boostrap-tables/publishertable')
+                                    @include('/admin/boostrap-tables/publisher/publishertable')
 
                                     <!--Add publisher model-->
-                                    @include('/admin/boostrap-models/publisheraddmodel')
+                                    @include('/admin/boostrap-models/publisher/publisheraddmodel')
 
                                 </div>
 
