@@ -15,7 +15,7 @@
 
             @foreach ($ebooks as $ebook)
             <tr>
-                <th scope="row">{{$loop->index+1}}</th>
+                <th scope="row">{{$loop->iteration}}</th>
                 <td><img src="{{Storage::url('coverpics/'.$ebook->coverpic)}}"  alt="..." width="50" height="50"></td>
                 <td>{{$ebook->title}}</td>
                 <td>{{$ebook->author}}</td>

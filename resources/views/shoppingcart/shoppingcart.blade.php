@@ -19,7 +19,7 @@
             <tbody>
                 @foreach ($shoppingCartItems as $shoppingCartItem)
                 <tr>
-                    <th scope="row">{{$shoppingCartItem->lineNo}}</th>
+                    <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$shoppingCartItem->itemName}}</td>
                     <td>{{$shoppingCartItem->description}}</td>
                     <td>{{$shoppingCartItem->quantity}}</td>

@@ -13,7 +13,7 @@
 
                 @foreach ($publishers as $publisher)
                 <tr>
-                    <th scope="row">{{$loop->index+1}}</th>
+                    <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$publisher->name}}</td>
                     <td>{{$publisher->email}}</td>
                     <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#publisherupdatemodel{{$publisher->publisherId}}">Edit</button></td>
