@@ -13,10 +13,10 @@ class WelcomeController extends Controller
 {
     public function index(){
 
-        //book fetching
         $ebooks=Ebook::all();
 
         if(Auth::check()&&Schema::hasTable('shoppingcart'.Auth::id())){
+
             $countOfshoppingcartItems=DB::table('shoppingcart'.Auth::id())->count();
 
             return view('welcome')->with(['ebooks'=>$ebooks,'countOfshoppingcartItems'=>$countOfshoppingcartItems]);
@@ -24,5 +24,19 @@ class WelcomeController extends Controller
             return view('welcome')->with(['ebooks'=>$ebooks]);
         }
 
+    }
+
+    public function viewEbook($id){
+
+        $ebook=Ebook::find($id);
+
+        if(Auth::check()&&Schema::hasTable('shoppingcart'.Auth::id())){
+
+            $countOfshoppingcartItems=DB::table('shoppingcart'.Auth::id())->count();
+
+            return view('viewebook')->with(['ebook'=>$ebook,'countOfshoppingcartItems'=>$countOfshoppingcartItems]);
+        }else{
+            return view('viewebook')->with(['ebook'=>$ebook]);
+        }
     }
 }

@@ -15,6 +15,8 @@ Route::get('/','WelcomeController@index');
 
 Auth::routes();
 
+Route::get('/viewebook/{id}','WelcomeController@viewEbook');
+
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/profile/download/{id}','ProfileController@download');

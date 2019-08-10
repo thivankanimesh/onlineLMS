@@ -68,6 +68,7 @@
                           <p class="card-text">{{$ebook->desc}}</p>
                           <h5 class="card-title">Price {{$ebook->price}}</h5>
                           <a href="/admin/shoppingcart/addtocart/{{$ebook->eid}}" class="btn btn-primary">Add To Cart</a>
+                          <a href="/viewebook/{{$ebook->eid}}" class="btn btn-success">View</a>
                         </div>
                       </div>
                 </div>
