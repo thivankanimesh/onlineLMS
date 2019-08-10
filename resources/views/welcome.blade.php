@@ -48,6 +48,8 @@
 
                             @endauth
 
+                            <a href="/admin" class="btn btn-danger">Admin Login</a>
+
                             </ul>
                         </div>
                     </div>
