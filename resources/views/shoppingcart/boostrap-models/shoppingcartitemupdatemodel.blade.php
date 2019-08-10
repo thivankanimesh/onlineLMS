@@ -15,7 +15,7 @@
 
                         <div class="form-group">
                           <label for="quantity">Enter quantity :</label>
-                          <input name="quantity" type="number" class="form-control" id="quantity"  placeholder="Enter quantity">
+                          <input name="quantity" type="number" class="form-control" id="quantity"  placeholder="Enter quantity" value="{{$shoppingCartItem->quantity}}" required>
                         </div>
 
                 </div>

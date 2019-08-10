@@ -13,13 +13,13 @@
                         <div class="form-group row">
                         <label for="publisherName" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input name="name" type="text" class="form-control" id="publisherName" placeholder="Enter Name" required>
+                                <input name="name" type="text" class="form-control" id="publisherName" placeholder="Enter Name" value="{{$publisher->name}}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                         <label for="publisherEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input name="email" type="email" class="form-control" id="publisherEmail" placeholder="Enter Email" required>
+                                <input name="email" type="email" class="form-control" id="publisherEmail" placeholder="Enter Email" value="{{$publisher->email}}" required>
                             </div>
                         </div>
                     </div>

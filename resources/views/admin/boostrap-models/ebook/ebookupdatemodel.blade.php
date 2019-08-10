@@ -38,7 +38,7 @@
                         <div class="form-group row">
                                 <label for="ebookAuthor" class="col-sm-2 col-form-label">Author</label>
                                 <div class="col-sm-10">
-                                    <select id="ebookAuthor" class="form-control" name="author">
+                                    <select id="ebookAuthor" class="form-control" name="author" required>
                                         <option selected>{{$ebook->author}}</option>
                                         @foreach ($authors as $author)
                                             <option value="{{$author->name}}">{{$author->name}}</option>
@@ -49,7 +49,7 @@
                             <div class="form-group row">
                                     <label for="ebookPublisher" class="col-sm-2 col-form-label">Publisher</label>
                                     <div class="col-sm-10">
-                                        <select id="ebookPublisher" class="form-control" name="publisher">
+                                        <select id="ebookPublisher" class="form-control" name="publisher" required>
                                             <option selected>{{$ebook->publisher}}</option>
                                             @foreach ($publishers as $publisher)
                                                 <option value="{{$publisher->name}}">{{$publisher->name}}</option>
