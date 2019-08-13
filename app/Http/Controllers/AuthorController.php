@@ -19,6 +19,10 @@ class AuthorController extends Controller
         $authorService=new AuthorService();
         $authorService->add($name,$email);
 
+        if($req->ajax()){
+            return response()->json(['success'=>'Data added successfully']);
+        }
+
         return redirect('/admin');
     }
 
@@ -30,6 +34,10 @@ class AuthorController extends Controller
         $authorService=new AuthorService();
         $authorService->update($id,$name,$email);
 
+        if($req->ajax()){
+            return response()->json(['success'=>'Data updated successfully']);
+        }
+
         return redirect('/admin');
 
     }
@@ -38,6 +46,10 @@ class AuthorController extends Controller
 
         $authorService=new AuthorService();
         $authorService->delete($id);
+
+        if($req->ajax()){
+            return response()->json(['success'=>'Data deleted successfully']);
+        }
 
         return redirect('/admin');
 

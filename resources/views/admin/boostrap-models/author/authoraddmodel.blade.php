@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form action="/admin/author/add" method="POST" enctype="multipart/form-data">
+                <form id="authorAddForm" action="/admin/author/add" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group row">
@@ -24,10 +24,35 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="btn-close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    {{-- <script>
+            $(document).ready(function(){
+              $('#authorAddForm').on('submit',function(event){
+                  event.preventDefault();
+                  $('#btn-close-modal').click();
+                  $.ajax({
+                      url:"/admin/author/add",
+                      method:"POST",
+                      data: new FormData(this),
+                      contentType:false,
+                      cache:false,
+                      processData:false,
+                      dataType:"json",
+                      success:function(data){
+                          var html='';
+                          if(data.success){
+                              $('#author_table_data').load(window.location + " #author_table_data");
+                          }
+                      }
+                  });
+
+              });
+            });
+          </script> --}}

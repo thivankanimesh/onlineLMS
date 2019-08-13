@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="/admin/author/delete/{{$author->authorId}}" method="GET" enctype="multipart/form-data">
+            <form id="authordeleteform{{$author->authorId}}" action="/admin/author/delete/{{$author->authorId}}" method="GET" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 
@@ -17,7 +17,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="authordeletemodel{{$author->authorId}}-close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Delete</button>
                 </div>
             </form>
@@ -25,3 +25,27 @@
         </div>
       </div>
 
+      {{-- <script>
+        $(document).ready(function(){
+          $('#authordeleteform'+{{$author->authorId}}).on('submit',function(event){
+              event.preventDefault();
+              $('#authordeletemodel'+{{$author->authorId}}+'-close-modal').click();
+              $.ajax({
+                  url:"/admin/author/delete/"+{{$author->authorId}},
+                  method:"GET",
+                  data: new FormData(this),
+                  contentType:false,
+                  cache:false,
+                  processData:false,
+                  dataType:"json",
+                  success:function(data){
+                      var html='';
+                      if(data.success){
+                            $('#author_table_data').load(window.location + " #author_table_data");
+                      }
+                  }
+              });
+
+          });
+        });
+      </script> --}}

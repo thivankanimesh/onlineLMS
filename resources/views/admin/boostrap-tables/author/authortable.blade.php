@@ -1,5 +1,5 @@
 <div id="author_table_data">
-        <table class="table table-borderless">
+        <table id="author_table" class="table table-borderless">
             <thead>
                 <tr>
                 <th scope="col">No</th>
