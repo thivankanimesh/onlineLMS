@@ -32,12 +32,13 @@
         </div>
     </div>
 
-    {{-- <script>
-            $(document).ready(function(){
+    <script>
+           // $(document).ready(function(){
               $('#authorAddForm').on('submit',function(event){
                   event.preventDefault();
                   $('#btn-close-modal').click();
                   $.ajax({
+                      type:"POST",
                       url:"/admin/author/add",
                       method:"POST",
                       data: new FormData(this),
@@ -46,13 +47,16 @@
                       processData:false,
                       dataType:"json",
                       success:function(data){
-                          var html='';
                           if(data.success){
+                              //location.reload();
                               $('#author_table_data').load(window.location + " #author_table_data");
                           }
+                      },
+                      error: function(error){
+                          console.log(error);
                       }
                   });
 
               });
-            });
-          </script> --}}
+          //  });
+          </script>

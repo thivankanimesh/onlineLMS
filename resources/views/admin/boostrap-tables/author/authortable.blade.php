@@ -9,10 +9,10 @@
                 <th scope="col">Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="authortablebody">
 
                 @foreach ($authors as $author)
-                <tr>
+                <tr id="tr{{$author->authorId}}">
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$author->name}}</td>
                     <td>{{$author->email}}</td>

@@ -17,17 +17,18 @@
 
                 </div>
                 <div class="modal-footer">
+                    <input id="hidden_id" name="hidden_id" type="hidden" />
                     <button id="authordeletemodel{{$author->authorId}}-close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Delete</button>
+                    <input type="submit" value="Delete" class="btn btn-primary" />
                 </div>
             </form>
           </div>
         </div>
       </div>
 
-      {{-- <script>
+      <script>
         $(document).ready(function(){
-          $('#authordeleteform'+{{$author->authorId}}).on('submit',function(event){
+          $(document).on('submit','#authordeleteform'+{{$author->authorId}},function(event){
               event.preventDefault();
               $('#authordeletemodel'+{{$author->authorId}}+'-close-modal').click();
               $.ajax({
@@ -41,11 +42,14 @@
                   success:function(data){
                       var html='';
                       if(data.success){
-                            $('#author_table_data').load(window.location + " #author_table_data");
+                            //$('#authordeleteform'+{{$author->authorId}})[0].reset();
+                            //$('#author_table').DataTable().ajax.reload();
+                            $('#tr'+{{$author->authorId}}).remove();
+
                       }
                   }
               });
 
           });
-        });
-      </script> --}}
+       });
+      </script>
