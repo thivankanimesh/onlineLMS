@@ -35,17 +35,23 @@ Route::post('/admin/ebook/update/{id}','EbookController@update');
 
 Route::get('/admin/ebook/delete/{id}','EbookController@delete');
 
+Route::get('/admin/ebook/search','EbookController@search');
+
 Route::post('/admin/author/add','AuthorController@add');
 
 Route::post('/admin/author/update/{id}','AuthorController@update');
 
 Route::get('/admin/author/delete/{id}','AuthorController@delete');
 
+Route::get('/admin/author/search','AuthorController@search');
+
 Route::post('/admin/publisher/add','PublisherController@add');
 
 Route::post('/admin/publisher/update/{id}','PublisherController@update');
 
 Route::get('/admin/publisher/delete/{id}','PublisherController@delete');
+
+Route::get('/admin/publisher/search','PublisherController@search');
 
 Route::get('/admin/shoppingcart','ShoppingCartController@index');
 

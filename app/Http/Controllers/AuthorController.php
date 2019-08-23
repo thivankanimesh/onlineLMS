@@ -54,4 +54,18 @@ class AuthorController extends Controller
         return redirect('/admin');
 
     }
+
+    public function search(Request $req){
+
+        $query=$req->get('query');
+
+        $authorService=new AuthorService();
+        $authors=$authorService->search($query);
+
+        if($req->ajax){
+            return response()->jason(['success'=>'Data searched successfully']);
+        }
+
+        return view('results')->with(['authors'=>$authors,'fromAuthorSearch'=>"fromAuthorSearch"]);
+    }
 }

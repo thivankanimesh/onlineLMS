@@ -35,4 +35,14 @@ class PublisherService{
 
     }
 
+    public function search($query){
+
+        $publishers=Publisher::where('name','LIKE','%'.$query.'%')
+                        ->orderBy('name','desc')
+                        ->get();
+
+        return $publishers;
+
+    }
+
 }

@@ -58,4 +58,18 @@ class EbookController extends Controller
 
         return redirect('/admin');
     }
+
+    public function search(Request $req){
+
+        $query=$req->get('query');
+
+        $ebookService=new EbookService();
+        $viewArray=$ebookService->search($query);
+
+        if($req->ajax){
+            return response()->jason(['success'=>'Data searched successfully']);
+        }
+
+        return view('results')->with($viewArray)->with(['fromEbookSearch'=>"fromEbookSearch"]);
+    }
 }

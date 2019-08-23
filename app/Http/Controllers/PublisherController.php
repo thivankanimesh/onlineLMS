@@ -42,4 +42,18 @@ class PublisherController extends Controller
         return redirect('/admin');
 
     }
+
+    public function search(Request $req){
+
+        $query=$req->get('query');
+
+        $publisherService=new PublisherService();
+        $publishers=$publisherService->search($query);
+
+        if($req->ajax){
+            return response()->json(['success'=>'Data searched successfully']);
+        }
+
+        return view('results')->with(['publishers'=>$publishers,'fromPublisherSearch'=>"fromPublisherSearch"]);
+    }
 }

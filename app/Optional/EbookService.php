@@ -5,6 +5,8 @@ namespace App\Optional;
 use DB;
 use Auth;
 use App\Ebook;
+use App\Author;
+use App\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
@@ -72,5 +74,17 @@ class EbookService{
         Storage::disk('public')->delete('coverpics/'.$ebook->coverpic);
 
         $ebook::where('eid',$id)->delete();
+    }
+
+    public function search($query){
+
+        $authors=Author::all();
+        $publishers=Publisher::all();
+        $ebooks=Ebook::where('title','LIKE','%'.$query.'%')
+                        ->orderBy('title','desc')
+                        ->get();
+
+        return ['ebooks'=>$ebooks,'authors'=>$authors,'publishers'=>$publishers];
+
     }
 }

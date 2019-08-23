@@ -36,4 +36,14 @@ class AuthorService{
 
     }
 
+    public function search($query){
+
+        $authors=Author::where('name','LIKE','%'.$query.'%')
+                        ->orderBy('name','desc')
+                        ->get();
+
+        return $authors;
+
+    }
+
 }
