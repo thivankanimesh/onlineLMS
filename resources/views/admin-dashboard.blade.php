@@ -23,7 +23,19 @@
 
                             <!--This is ebooks related-->
                             <div class="tab-pane fade" id="list-ebook" role="tabpanel" aria-labelledby="list-ebook-list">
-                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addeBook">Add eBook</button>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addeBook">Add eBook</button></td>
+                                            <td>
+                                                <form action="/admin/ebook/search">
+                                                    Search <input name="query" type="text" />
+                                                    <input type="submit" value="Search" />
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                                 <!--This is recently added ebooks table-->
                                 <div id="ebooktable" class="ebooktable">
@@ -37,7 +49,19 @@
 
                             <!--This is authors related-->
                             <div class="tab-pane fade" id="list-author" role="tabpanel" aria-labelledby="list-author-list">
-                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addAuthor">Add Author</button>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addAuthor">Add Author</button></td>
+                                            <td>
+                                                <form action="/admin/author/search">
+                                                    Search <input name="query" type="text" />
+                                                    <input type="submit" value="Search" />
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                                 <!--This is recently added authors table-->
                                 @include('/admin/boostrap-tables/author/authortable')
@@ -49,7 +73,20 @@
 
                             <!--This is publisher related-->
                             <div class="tab-pane fade" id="list-publisher" role="tabpanel" aria-labelledby="list-publisher-list">
-                                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addPublisher">Add Publisher</button>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addPublisher">Add Publisher</button></td>
+                                            <td>
+                                                <form action="/admin/publisher/search">
+                                                    Search <input name="query" type="text" />
+                                                    <input type="submit" value="Search" />
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
 
                                     <!--This is recently added publishers table-->
                                     @include('/admin/boostrap-tables/publisher/publishertable')
